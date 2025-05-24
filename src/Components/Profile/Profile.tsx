@@ -1,5 +1,6 @@
 import React from 'react'
 import UserForm from '../../UserForm/UserForm'
+import { CiEdit } from 'react-icons/ci'
 
 export default function Profile() {
   return (
@@ -12,7 +13,7 @@ export default function Profile() {
       </div>
 
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <UserForm imgFlag={false} disableFlag={true} btnFlag={false} userData={users[userIndex]} />
+        {/* <UserForm imgFlag={false} disableFlag={true} btnFlag={false} userData={users[userIndex]} /> */}
       </div>
     </div>
   )

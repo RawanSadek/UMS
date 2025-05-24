@@ -38,7 +38,7 @@ export default function Users() {
 
   localStorage.setItem("users", JSON.stringify(users));
 
-  let [userIdx, setUserIdx] = useState<number | null>(null)
+  let [userIdx, setUserIdx] = useState<number>(Number)
   let [userData, setUserData] = useState<userData | null>(null)
 
   const [show, setShow] = useState(false);

@@ -4,11 +4,29 @@ import { useParams, type IndexRouteObject, type IndexRouteProps } from "react-ro
 
 export default function UpdateUser() {
 
-    let {index} = useParams()
+    interface userData {
+        id: number;
+        image: string;
+        firstName: string;
+        lastName: string;
+        email: string;
+        phone: string;
+        birthDate: string;
+    }
+
+    interface indexInterface{
+        index:number
+    }
+
+    let { index } = useParams()
     let userIndex = index;
 
-    let users = JSON.parse(localStorage.getItem("users"));
-    console.log(users[userIndex])
+
+    let users = localStorage.getItem("users");
+    if (users !== null) {
+        users = JSON.parse(users);
+    }
+    // console.log(users[userIndex])
 
     return (
         <div className='vh-100 overflow-y-auto'>
@@ -20,7 +38,7 @@ export default function UpdateUser() {
             </div>
 
             <div className="d-flex justify-content-center align-items-center mt-5">
-                <UserForm imgFlag={false} disableFlag={false} btnFlag={false} userData={users[userIndex]}/>
+                <UserForm imgFlag={false} disableFlag={false} btnFlag={false} userData={users? users[userIndex]: null} />
             </div>
         </div>
     )
