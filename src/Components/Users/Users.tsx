@@ -4,7 +4,7 @@ import { CiEdit, CiTrash } from 'react-icons/ci'
 import { GoBell } from 'react-icons/go'
 import { IoIosSearch } from 'react-icons/io'
 import { RiUserSearchLine } from 'react-icons/ri'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { toast } from 'react-toastify'
@@ -20,6 +20,28 @@ export default function Users() {
     phone: string;
     birthDate: string;
   }
+
+  // if (!localStorage.getItem("users")) {
+
+  //   let [users, setUsers] = useState<userData[]>([]);
+  //   let getUsers = async () => {
+  //     try {
+  //       let response = await axios.get("https://dummyjson.com/users");
+  //       setUsers(response?.data?.users);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  
+  //   }
+
+  //   useEffect(() => {
+  //     getUsers();
+  //   }, []);
+
+  // }
+  // else{
+  //   let users = localStorage.getItem("users")
+  // }
 
   let [users, setUsers] = useState<userData[]>([]);
   let getUsers = async () => {

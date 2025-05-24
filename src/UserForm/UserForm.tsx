@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import img from '../../src/assets/images/pp.jpeg'
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";

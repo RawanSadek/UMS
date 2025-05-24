@@ -20,7 +20,7 @@ export default function Login() {
   let onSubmit = async(data:loginForm)=>
   {
     try {
-      let response = await axios.post("https://dummyjson.com/auth/login",data);
+      await axios.post("https://dummyjson.com/auth/login",data);
       toast.success("Welcome to UMS")
       navigate("/dashboard");
       // console.log(response)

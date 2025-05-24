@@ -1,25 +1,25 @@
 import { CiEdit } from "react-icons/ci";
 import UserForm from "../UserForm/UserForm";
-import { useParams, type IndexRouteObject, type IndexRouteProps } from "react-router-dom";
+import { useParams} from "react-router-dom";
 
 export default function UpdateUser() {
 
-    interface userData {
-        id: number;
-        image: string;
-        firstName: string;
-        lastName: string;
-        email: string;
-        phone: string;
-        birthDate: string;
-    }
+    // interface userData {
+    //     id: number;
+    //     image: string;
+    //     firstName: string;
+    //     lastName: string;
+    //     email: string;
+    //     phone: string;
+    //     birthDate: string;
+    // }
 
-    interface indexInterface{
-        index:number
-    }
+    // interface indexInterface{
+    //     index:number
+    // }
 
     let { index } = useParams()
-    let userIndex = index;
+    let userIndex = parseInt(String(index));
 
 
     let users = localStorage.getItem("users");
@@ -38,7 +38,7 @@ export default function UpdateUser() {
             </div>
 
             <div className="d-flex justify-content-center align-items-center mt-5">
-                <UserForm imgFlag={false} disableFlag={false} btnFlag={false} userData={users? users[userIndex]: null} />
+                <UserForm imgFlag={false} disableFlag={false} btnFlag={false} userData={users?users[userIndex]: null} />
             </div>
         </div>
     )

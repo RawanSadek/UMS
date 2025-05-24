@@ -1,5 +1,4 @@
-import React from 'react'
-import UserForm from '../../UserForm/UserForm'
+
 import { CiEdit } from 'react-icons/ci'
 
 export default function Profile() {

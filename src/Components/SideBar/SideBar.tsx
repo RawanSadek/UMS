@@ -6,7 +6,7 @@ import { PiUsersThreeLight } from 'react-icons/pi';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import pp from '../../assets/images/pp.jpeg'
-import { FaChevronLeft, FaChevronRight, FaCircleChevronRight } from 'react-icons/fa6';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { useState } from 'react';
 
 export default function SideBar() {
