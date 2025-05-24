@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: rgb(129, 44, 44);
+}
+
+.main-bg{
+    background-color: var(--main-color);
+}
+
+.main-text{
+    color: var(--main-color);
+}
+
+.login-container{
+    background: linear-gradient(to right, rgb(129, 44, 44), rgba(129, 44, 44, 0.749));
+}
+
+.btn{
+    background-color: var(--main-color);
+}
+
+.title h2::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 7px;
+    background-color: var(--main-color);
+    left: 10px;
+}
+
+.sidebarContainer{
+    background-color: var(--main-color);
+}
+
+.sidebarContainer .ps-sidebar-container{
+    padding: 20px ;
+}
+
+.sidebarContainer .ps-sidebar-container{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.ps-menu-root ul{
+    width: 100%;
+}
+
+.sidebarContainer .ps-sidebar-container .ps-menu-button{
+    padding-left: 25%;
+}
+
+.sidebarContainer .ps-sidebar-container .ps-menu-button:hover{
+    background-color:var(--main-color);
+    border-radius: 5px;
+}
+
+.sidebarContainer h5{
+    position: relative;
+}
+
+.sidebarContainer h5::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 5px;
+    background-color: var(--main-color);
+    left: -10px;
+}
+
+.btn:active, .btn:focus, .btn:hover{
+    opacity: 0.9 !important;
+}
+
+.btn:active:not(.normal-btn), .btn:focus:not(.normal-btn), .btn:hover:not(.normal-btn){
+    background-color: var(--main-color) !important; 
+}
+
+.sidebar-btn{
+    height: fit-content;
+    right: 0px;
+}
+
+.search-container input:focus{
+    border: none;
+    outline: none;
+}
+
+.users-data{
+    height: 75vh;
+}
+
+.users-data table{
+    width: 90%;
+}
+
+.edit, .trash{
+    cursor: pointer;
+}
+
+.userForm{
+    padding: 100px 50px 50px !important;
+}
+
+.form-img-container{
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12%;
+    height: fit-content;
+    border-radius: 50%;
+    overflow: hidden;
+    /* background-color: aquamarine; */
+}
+
+.form-img-container img{
+    width: 100%;
+}
+
+::placeholder{
+    font-size: 100%;
+    color: rgb(187, 51, 51);
+}
