@@ -125,3 +125,7 @@
     font-size: 100%;
     color: rgb(160, 160, 160);
 }
+
+td{
+    vertical-align: middle;
+}
