@@ -1,4 +1,4 @@
-import UserForm from '../../UserForm/UserForm'
+import UserForm from '../UserForm/UserForm'
 import { AiOutlineUserAdd } from 'react-icons/ai'
 
 export default function AddUser() {

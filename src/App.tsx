@@ -9,7 +9,7 @@ import AddUser from './Components/AddUser/AddUser'
 import AuthLayout from './Components/AuthLayout/AuthLayout'
 import Login from './Components/Login/Login'
 import { ToastContainer } from 'react-toastify'
-import UpdateUser from './UpdateUser/UpdateUser'
+import UpdateUser from './Components/UpdateUser/UpdateUser'
 
 function App() {
   const routes = createBrowserRouter([

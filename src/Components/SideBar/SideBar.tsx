@@ -7,9 +7,12 @@ import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
 import pp from '../../assets/images/pp.jpeg'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../AuthContext/AuthContext';
 
 export default function SideBar() {
+  let {userData}:any = useContext(AuthContext);
+
 let [collapsed, setCollapsed] = useState(false);
 
 let toggleCollapsed=()=>{
@@ -22,8 +25,8 @@ let toggleCollapsed=()=>{
         <Sidebar className='vh-100' collapsed={collapsed}>
           <h5>UMS</h5>
           <div className="text-center mb-4">
-            <img src={pp} alt="user image" className='w-50 rounded-circle mt-5' />
-            <h4>John Doe</h4>
+            <img src={userData.image} alt="user image" className='w-50 rounded-circle mt-5' />
+            <h4>{userData.firstName} {userData.lastName}</h4>
             <small className=''>Admin</small>
           </div>
           <Menu className='d-flex flex-column align-items-center align-top'>

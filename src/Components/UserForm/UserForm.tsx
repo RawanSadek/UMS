@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean; btnFlag: boolean; userData:any}) {
 
@@ -17,7 +18,7 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
         age: number
     }
 
-    let { register, handleSubmit, formState: { errors } } = useForm<formData>();
+    let { register, handleSubmit,setValue, formState: { errors } } = useForm<formData>();
 
     let navigate = useNavigate();
 
@@ -37,6 +38,12 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
 
   }
 
+  useEffect(() => {
+    if (userData?.lastName) {
+      setValue('lastName', userData.lastName);
+    }
+  }, [userData, setValue]);
+
     return (
             <form onSubmit={handleSubmit(onSubmit)} className="userForm p-5 shadow-lg col-9 position-relative rounded-4">
                 <div className="form-img-container" hidden={imgFlag}><img src={userData? userData.image : ''} alt="user image"/></div>
@@ -51,7 +58,7 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
 
                     <div className="col-12 col-lg-6 mb-3">
                         <label className='mb-1 text-secondary'>Last Name</label>
-                        <input value={userData? userData.lastName : ''} disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder='Enter your last name' {...register('lastName', { required: 'Last Name is required!!!' })} />
+                        <input disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder='Enter your last name' {...register('lastName', { required: 'Last Name is required!!!' })} />
                         {errors.lastName && <p className='text-danger'>{errors.lastName.message}</p>}
                     </div>
 

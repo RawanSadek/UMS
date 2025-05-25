@@ -1,12 +1,20 @@
 import axios from 'axios';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { CiUser } from "react-icons/ci";
 import { TbLockPassword } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { AuthContext } from '../AuthContext/AuthContext';
 
 
 export default function Login() {
+
+  interface AuthContextInterface{
+    saveUserData:()=>void
+}
+
+  let {saveUserData} = useContext(AuthContext) as AuthContextInterface;
 
   interface loginForm
   {
@@ -20,7 +28,9 @@ export default function Login() {
   let onSubmit = async(data:loginForm)=>
   {
     try {
-      await axios.post("https://dummyjson.com/auth/login",data);
+      let response = await axios.post("https://dummyjson.com/auth/login",data);
+      localStorage.setItem("accessToken",response?.data?.accessToken);
+      saveUserData()
       toast.success("Welcome to UMS")
       navigate("/dashboard");
       // console.log(response)
