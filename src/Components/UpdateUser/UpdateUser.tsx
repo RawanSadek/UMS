@@ -4,20 +4,6 @@ import { useParams} from "react-router-dom";
 
 export default function UpdateUser() {
 
-    // interface userData {
-    //     id: number;
-    //     image: string;
-    //     firstName: string;
-    //     lastName: string;
-    //     email: string;
-    //     phone: string;
-    //     birthDate: string;
-    // }
-
-    // interface indexInterface{
-    //     index:number
-    // }
-
     let { index } = useParams()
     let userIndex = parseInt(String(index));
 
@@ -26,7 +12,6 @@ export default function UpdateUser() {
     if (users !== null) {
         users = JSON.parse(users);
     }
-    // console.log(users[userIndex])
 
     return (
         <div className='vh-100 overflow-y-auto'>

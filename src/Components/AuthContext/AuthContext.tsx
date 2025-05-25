@@ -10,6 +10,7 @@ interface User{
     email: string;
     phone: string;
     birthDate: string;
+    age:number
 }
 
 interface AuthContextInterface{

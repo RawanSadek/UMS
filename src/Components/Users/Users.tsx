@@ -4,7 +4,7 @@ import { CiEdit, CiTrash } from 'react-icons/ci'
 import { GoBell } from 'react-icons/go'
 import { IoIosSearch } from 'react-icons/io'
 import { RiUserSearchLine } from 'react-icons/ri'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { toast } from 'react-toastify'
@@ -21,33 +21,13 @@ export default function Users() {
     birthDate: string;
   }
 
-  // if (!localStorage.getItem("users")) {
-
-  //   let [users, setUsers] = useState<userData[]>([]);
-  //   let getUsers = async () => {
-  //     try {
-  //       let response = await axios.get("https://dummyjson.com/users");
-  //       setUsers(response?.data?.users);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  
-  //   }
-
-  //   useEffect(() => {
-  //     getUsers();
-  //   }, []);
-
-  // }
-  // else{
-  //   let users = localStorage.getItem("users")
-  // }
-
   let [users, setUsers] = useState<userData[]>([]);
   let getUsers = async () => {
+
     try {
       let response = await axios.get("https://dummyjson.com/users");
       setUsers(response?.data?.users);
+
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +45,7 @@ export default function Users() {
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = (idx:number) => {
+  const handleShow = (idx: number) => {
     setShow(true);
     setUserIdx(idx);
     setUserData(users[idx])
@@ -75,10 +55,10 @@ export default function Users() {
     try {
       await axios.delete(`https://dummyjson.com/users/${users[userIdx].id}`);
       toast.info(`${users[userIdx].firstName} ${users[userIdx].lastName} successfully deleted`)
-      users.splice(userIdx,1);   //no need for this if with the real APIs
+      users.splice(userIdx, 1);   //no need for this with the real APIs
       localStorage.setItem("users", JSON.stringify(users));
       handleClose();
-      // getUsers();  //will draw all the users cause i'm not deleting from the API (it's a fake one)
+      // getUsers();  //will draw all the users cause i'm not deleting from the real data (it's a fake API)
     } catch (error) {
       toast.error("Failed to delete user")
       console.log(error)
@@ -86,12 +66,12 @@ export default function Users() {
   }
 
 
-  let navigate=useNavigate();
-  let navigateToAddUser=()=>{
+  let navigate = useNavigate();
+  let navigateToAddUser = () => {
     navigate('/dashboard/addUser');
   }
 
-  let UpdateUser=(index:number)=>{
+  let UpdateUser = (index: number) => {
     navigate(`/dashboard/users/${index}`)
   }
 
@@ -111,14 +91,14 @@ export default function Users() {
 
       <div className='px-4 pt-3'>
         <div className="d-flex justify-content-between px-4">
-          <h3><PiUsersThreeLight size={30} className='me-2 mb-2'/>Users list</h3>
+          <h3><PiUsersThreeLight size={30} className='me-2 mb-2' />Users list</h3>
           <button onClick={navigateToAddUser} className='btn text-light px-5'>Add New User</button>
         </div>
         <hr />
       </div>
 
       <div className="users-data p-4 overflow-y-scroll">
-        <table className="table bg-light mx-auto">
+        <table className="table bg-light mx-auto text-center">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -132,7 +112,7 @@ export default function Users() {
           </thead>
           <tbody>
 
-            {users.map((user,index) => (
+            {users.map((user, index) => (
               <tr key={index} className=''>
                 <td className='image-col'><img src={user.image} alt="" className='w-50' /></td>
                 <td>{user.firstName}</td>
@@ -141,7 +121,7 @@ export default function Users() {
                 <td>{user.phone}</td>
                 <td>{user.birthDate}</td>
                 <td className='border-start border-1 text-center'>
-                  <CiEdit onClick={()=>UpdateUser(index)} size={23} className='text-warning edit me-4' />
+                  <CiEdit onClick={() => UpdateUser(index)} size={23} className='text-warning edit me-4' />
                   <CiTrash onClick={() => handleShow(index)} size={23} className=' text-danger trash' />
                 </td>
               </tr>

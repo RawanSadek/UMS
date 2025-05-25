@@ -5,10 +5,10 @@ import { IoHomeOutline } from 'react-icons/io5';
 import { PiUsersThreeLight } from 'react-icons/pi';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-import pp from '../../assets/images/pp.jpeg'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../AuthContext/AuthContext';
+import pp from '../../assets/pp.png'
 
 export default function SideBar() {
   let {userData}:any = useContext(AuthContext);
@@ -22,11 +22,11 @@ let toggleCollapsed=()=>{
   return (
     <div className='d-flex'>
       <div className='sidebarContainer vh-100 position-relative'>
-        <Sidebar className='vh-100' collapsed={collapsed}>
+        <Sidebar className='sidebar vh-100' collapsed={collapsed} >
           <h5>UMS</h5>
           <div className="text-center mb-4">
-            <img src={userData.image} alt="user image" className='w-50 rounded-circle mt-5' />
-            <h4>{userData.firstName} {userData.lastName}</h4>
+            <img src={userData? userData.image: pp} alt="user image" className='w-50 rounded-circle mt-5' />
+            {userData? <h4>{userData.firstName} {userData.lastName}</h4> : <h4></h4>}
             <small className=''>Admin</small>
           </div>
           <Menu className='d-flex flex-column align-items-center align-top'>

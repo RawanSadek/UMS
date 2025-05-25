@@ -32,17 +32,13 @@ export default function Login() {
       localStorage.setItem("accessToken",response?.data?.accessToken);
       saveUserData()
       toast.success("Welcome to UMS")
-      navigate("/dashboard");
-      // console.log(response)
-      
+      navigate("/dashboard");      
     } catch (error) {
       toast.error("Wrong username or password. Please try again!")
       console.log(error);
       
     }
-
   }
-
 
   return (
     <div className="login-container">
