@@ -91,7 +91,7 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
 
         <div className="col-12 col-lg-6 mb-3">
           <label className='mb-1 text-secondary'>Phone</label>
-          <input disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder={`Enter your phone`} {...register('phone', { required: 'phone is required!!!' })} />
+          <input disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder={`Enter your phone`} {...register('phone', { required: 'phone is required!!!' , pattern:{value:/^\+?\d{10,15}$/, message:"Invalid phone number!!"}})} />
           {errors.phone && <p className='text-danger'>{errors.phone.message}</p>}
         </div>
 

@@ -53,9 +53,11 @@ export default function Login() {
             <CiUser className='fs-5'/><label className='text-secondary mb-2'>Username</label>
             <input type="text" className='form-control px-3 py-2 text-secondary' placeholder={`Enter your username`} {...register('username', {required:'Username is required!!!'})}/>
             {errors.username && <p className='text-danger'>{errors.username.message}</p>}
+            <small>Try this username: emilys</small>
             <TbLockPassword className='fs-5'/><label className='text-secondary mb-2 mt-4'>Password</label>
             <input type="password" className='form-control px-3 py-2 text-secondary' placeholder='Enter your password' {...register('password', {required:'Password is required!!!'})}/>
              {errors.password && <p className='text-danger'>{errors.password.message}</p>}
+             <small>Try this password: emilyspass</small>
             <button className='btn login-btn w-100 my-4 py-2 text-light'>Sign In</button>
           </form>
         </div>
