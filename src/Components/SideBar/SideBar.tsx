@@ -27,7 +27,7 @@ let toggleCollapsed=()=>{
           <div className="text-center mb-4">
             <img src={userData? userData.image: pp} alt="user image" className='w-50 rounded-circle mt-5' />
             {userData? <h4 className='loginUserName w-100 text-center'>{userData.firstName} {userData.lastName}</h4> : <h4></h4>}
-            <small className=''>Admin</small>
+            <small className='main-text'>Admin</small>
           </div>
           <Menu className='d-flex flex-column align-items-center align-top'>
             <MenuItem icon={<IoHomeOutline size={20} className='me-2' />} component={<Link to="/dashboard" />}>  Home</MenuItem>
