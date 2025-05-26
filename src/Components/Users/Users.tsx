@@ -38,6 +38,25 @@ export default function Users() {
     getUsers();
   }, []);
 
+  let [filteredUsers, setFilteredUsers] = useState(users);
+
+  let searchUser = (e: any) => {
+    let searchInput = e.target.value;
+    if(searchInput==""){
+      setFilteredUsers(users)
+    }
+    else{
+      let filtered = users.filter((user) =>
+        user?.firstName.toLowerCase().startsWith(searchInput.toLowerCase()) || user?.lastName.toLowerCase().startsWith(searchInput.toLowerCase())
+      );
+      setFilteredUsers(filtered);
+    }
+  }
+
+  useEffect(() => {
+  setFilteredUsers(users);
+}, [users]);
+
   localStorage.setItem("users", JSON.stringify(users));
 
   let [userIdx, setUserIdx] = useState<number>(Number)
@@ -66,6 +85,9 @@ export default function Users() {
   }
 
 
+  
+
+
   let navigate = useNavigate();
   let navigateToAddUser = () => {
     navigate('/dashboard/addUser');
@@ -82,7 +104,7 @@ export default function Users() {
         <RiUserSearchLine size={20} className='fw-lighter' />
         <div className='d-flex align-items-center'>
           <div className="search-container rounded-1 border border-1 px-2 py-1">
-            <input type="search" name="search" id="search" className='border-0 ' placeholder='Search' />
+            <input onChange={searchUser} type="search" name="search" id="search" className='border-0 ' placeholder='Search' />
             <IoIosSearch />
           </div>
           <GoBell className='ms-3' />
@@ -112,7 +134,7 @@ export default function Users() {
           </thead>
           <tbody>
 
-            {users.map((user, index) => (
+            {filteredUsers.map((user, index) => (
               <tr key={index} className=''>
                 <td className='image-col'><img src={user.image} alt="" className='w-50' /></td>
                 <td>{user.firstName}</td>
