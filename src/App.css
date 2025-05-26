@@ -38,10 +38,6 @@
 }
 
 .sidebarContainer .ps-sidebar-container{
-    padding: 20px ;
-}
-
-.sidebarContainer .ps-sidebar-container{
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -50,7 +46,7 @@
 }
 
 .sidebarContainer .ps-sidebar-container .ps-menu-button{
-    padding-left: 25%;
+    padding-left: 28%;
 }
 
 .sidebarContainer .ps-sidebar-container .ps-menu-button:hover{
@@ -128,4 +124,8 @@
 
 td{
     vertical-align: middle;
+}
+
+.loginUserName{
+    font-size: 1rem;
 }

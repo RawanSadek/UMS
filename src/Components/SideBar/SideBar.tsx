@@ -23,10 +23,10 @@ let toggleCollapsed=()=>{
     <div className='d-flex'>
       <div className='sidebarContainer vh-100 position-relative'>
         <Sidebar className='sidebar vh-100' collapsed={collapsed} >
-          <h5>UMS</h5>
+          <h5 className='ms-4 mt-3'>UMS</h5>
           <div className="text-center mb-4">
-            <img src={userData? userData.image: pp} alt="user image" className='w-50 rounded-circle mt-5' />
-            {userData? <h4>{userData.firstName} {userData.lastName}</h4> : <h4></h4>}
+            <img src={userData? userData.image: pp} alt="user image" className='w-75 rounded-circle mt-5' />
+            {userData? <h4 className='loginUserName w-100 text-center'>{userData.firstName} {userData.lastName}</h4> : <h4></h4>}
             <small className=''>Admin</small>
           </div>
           <Menu className='d-flex flex-column align-items-center align-top'>
