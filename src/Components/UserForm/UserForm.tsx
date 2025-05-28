@@ -59,7 +59,7 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
       setValue('phone', userData.phone);
       setValue('birthDate', userData.birthDate);
     }
-  }, [userData, setValue]);
+  }, [userData]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="userForm p-5 shadow-lg col-9 position-relative rounded-4">
