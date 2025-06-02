@@ -123,13 +123,13 @@ export default function Users() {
         <table className="table bg-light mx-auto text-center">
           <thead>
             <tr>
-              <th scope="col"></th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Birth Date</th>
-              <th scope="col"></th>
+              <th ></th>
+              <th >First Name</th>
+              <th >Last Name</th>
+              <th >Email</th>
+              <th >Phone</th>
+              <th >Birth Date</th>
+              <th ></th>
             </tr>
           </thead>
           <tbody>

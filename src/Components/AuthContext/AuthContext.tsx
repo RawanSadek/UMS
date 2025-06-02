@@ -6,8 +6,7 @@ interface User{
     id: number;
     image: string;
     firstName: string;
-    lastName: string;
-    email: string;
+    lastName: string;    email: string;
     phone: string;
     birthDate: string;
     age:number

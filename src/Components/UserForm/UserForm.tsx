@@ -30,11 +30,11 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
       }
       else {
         let response = await axios.put(`https://dummyjson.com/users/${userData.id}`, data);
+        
         let stringUsers = localStorage.getItem("users");
-        if(stringUsers)
-        {
+        if (stringUsers) {
           let users = JSON.parse(stringUsers);
-          let updatedUsers = users.map((user:any) =>Number(user.id) == Number(response.data.id) ? response.data : user);
+          let updatedUsers = users.map((user: any) => Number(user.id) == Number(response.data.id) ? response.data : user);
           localStorage.setItem("users", JSON.stringify(updatedUsers));
         }
         toast.success("User data updated succeccfully")
@@ -52,14 +52,20 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
 
   useEffect(() => {
     if (userData) {
-      setValue('firstName', userData.firstName);
-      setValue('lastName', userData.lastName);
-      setValue('email', userData.email);
-      setValue('age', userData.age);
-      setValue('phone', userData.phone);
-      setValue('birthDate', userData.birthDate);
+      let fields = ['firstName', 'lastName', 'email', 'age', 'phone', 'birthDate'] as const;
+
+      for (const field of fields) {
+        // console.log(userData[field])
+        setValue(field, userData[field]);
+      }
+      // setValue('firstName', userData.firstName);
+      // setValue('lastName', userData.lastName);
+      // setValue('email', userData.email);
+      // setValue('age', userData.age);
+      // setValue('phone', userData.phone);
+      // setValue('birthDate', userData.birthDate);
     }
-  }, [userData, setValue]);
+  }, [userData]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="userForm p-5 shadow-lg col-9 position-relative rounded-4">
@@ -91,7 +97,7 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
 
         <div className="col-12 col-lg-6 mb-3">
           <label className='mb-1 text-secondary'>Phone</label>
-          <input disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder={`Enter your phone`} {...register('phone', { required: 'phone is required!!!' , pattern:{value:/^\+?[0-9\s\-]{9,15}$/, message:"Invalid phone number!!"}})} />
+          <input disabled={disableFlag} type="text" className='form-control px-3 py-2' placeholder={`Enter your phone`} {...register('phone', { required: 'phone is required!!!', pattern: { value: /^\+?[0-9\s\-]{9,15}$/, message: "Invalid phone number!!" } })} />
           {errors.phone && <p className='text-danger'>{errors.phone.message}</p>}
         </div>
 

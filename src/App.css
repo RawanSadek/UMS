@@ -5,7 +5,7 @@
 }
 
 :root{
-    --main-color: rgb(129, 44, 44);
+    --main-color: rgb(239, 178, 10);
 }
 
 .main-bg{
@@ -17,7 +17,7 @@
 }
 
 .login-container{
-    background: linear-gradient(to right, rgb(129, 44, 44), rgba(129, 44, 44, 0.749));
+    background: linear-gradient(to right, rgb(239, 178, 10), rgba(239, 178, 10, 0.656));
 }
 
 .btn{

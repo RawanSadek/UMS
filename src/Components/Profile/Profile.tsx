@@ -6,6 +6,13 @@ import { AuthContext } from '../AuthContext/AuthContext';
 export default function Profile() {
 
   let {userData}:any = useContext(AuthContext);
+  let stringUsers = localStorage.getItem("users")
+  let user
+  if(stringUsers)
+  {
+    let users = JSON.parse(stringUsers)
+    user = users.find((u:any) => u.id === userData.id);
+  }
   return (
     <div className='vh-100 overflow-y-auto'>
       <div className='px-4 pt-3'>
@@ -16,7 +23,7 @@ export default function Profile() {
       </div>
 
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <UserForm imgFlag={false} disableFlag={true} btnFlag={true} userData={userData} />
+        <UserForm imgFlag={false} disableFlag={true} btnFlag={true} userData={user} />
       </div>
     </div>
   )
