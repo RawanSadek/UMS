@@ -21,12 +21,15 @@ export default function Users() {
     birthDate: string;
   }
 
-  let [users, setUsers] = useState<userData[]>([]);
-  let getUsers = async () => {
 
+  const [loading, setLoading] = useState<boolean>(true);
+  let [users, setUsers] = useState<userData[]>([]);
+
+  let getUsers = async () => {
     try {
       let response = await axios.get("https://dummyjson.com/users");
       setUsers(response?.data?.users);
+      setLoading(false);
 
     } catch (error) {
       console.log(error);
@@ -97,6 +100,10 @@ export default function Users() {
     navigate(`/dashboard/users/${index}`)
   }
 
+
+  if (loading) {
+    return <div className='loading'></div>
+  }
 
   return (
     <div>
