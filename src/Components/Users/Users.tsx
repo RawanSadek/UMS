@@ -130,7 +130,7 @@ export default function Users() {
         <table className="table bg-light mx-auto text-center">
           <thead>
             <tr>
-              <th ></th>
+              <th >Image</th>
               <th >First Name</th>
               <th >Last Name</th>
               <th >Email</th>
