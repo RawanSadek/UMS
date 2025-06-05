@@ -136,3 +136,15 @@ small{
     color: rgb(169, 169, 169);
     margin-top: 5px;
 }
+
+.loading{
+    background-image: url(./assets/ZKZg.gif);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 120px;
+    background-position: 50% center;
+    background-color: rgb(229, 229, 229);
+    z-index: 99999;
+
+}
