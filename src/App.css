@@ -17,7 +17,7 @@
 }
 
 .login-container{
-    background: linear-gradient(to right, rgb(239, 178, 10), rgba(239, 178, 10, 0.656));
+    background: linear-gradient(to right, rgb(239, 178, 10) 30%, rgba(239, 178, 10, 0.514));
 }
 
 .btn{
