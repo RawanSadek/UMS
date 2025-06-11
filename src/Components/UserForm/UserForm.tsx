@@ -55,15 +55,8 @@ export default function UserForm(props: { imgFlag: boolean; disableFlag: boolean
       let fields = ['firstName', 'lastName', 'email', 'age', 'phone', 'birthDate'] as const;
 
       for (const field of fields) {
-        // console.log(userData[field])
         setValue(field, userData[field]);
       }
-      // setValue('firstName', userData.firstName);
-      // setValue('lastName', userData.lastName);
-      // setValue('email', userData.email);
-      // setValue('age', userData.age);
-      // setValue('phone', userData.phone);
-      // setValue('birthDate', userData.birthDate);
     }
   }, [userData]);
 

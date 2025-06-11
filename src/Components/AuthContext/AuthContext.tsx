@@ -1,7 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import { createContext, useEffect, useState, type ReactNode } from "react";
 
-
 interface User{
     id: number;
     image: string;

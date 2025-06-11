@@ -87,10 +87,6 @@ export default function Users() {
     }
   }
 
-
-  
-
-
   let navigate = useNavigate();
   let navigateToAddUser = () => {
     navigate('/dashboard/addUser');
@@ -127,7 +123,7 @@ export default function Users() {
       </div>
 
       <div className="users-data p-4 overflow-y-scroll">
-        <table className="table bg-light mx-auto text-center">
+        <table className="table bg-light mx-auto text-center overflow-x-scroll">
           <thead>
             <tr>
               <th >Image</th>
@@ -136,7 +132,7 @@ export default function Users() {
               <th >Email</th>
               <th >Phone</th>
               <th >Birth Date</th>
-              <th ></th>
+              <th className='text-white'>aaaaaaaaaaaaaaaaaaaaaaa</th>
             </tr>
           </thead>
           <tbody>
